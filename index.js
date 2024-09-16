@@ -2,8 +2,23 @@
  * @format
  */
 
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
+import { name as appName } from './app.json';
 import App from './App';
-import {name as appName} from './app.json';
+import { PaperProvider } from 'react-native-paper';
+import { UserProvider } from './src/presentation/state/UserContext';
 
-AppRegistry.registerComponent(appName, () => App);
+export const Main = () => {
+    return (
+        <UserProvider>
+            <PaperProvider>
+
+                <App />
+
+            </PaperProvider >
+        </UserProvider>
+
+    );
+}
+
+AppRegistry.registerComponent(appName, () => Main);
